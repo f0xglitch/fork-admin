@@ -1,0 +1,67 @@
+---
+import "../styles/global.css";
+import Sidebar from "../components/Sidebar.astro";
+
+const { title = "Central da Fork" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Central de administração da Fork Community."
+    />
+    <title>{title}</title>
+  </head>
+
+  <body>
+    <a class="pular-conteudo" href="#conteudo">
+      Pular para o conteúdo
+    </a>
+
+    <div class="estrutura">
+      <Sidebar />
+
+      <div class="conteudo" id="conteudo" tabindex="-1">
+        <slot />
+      </div>
+    </div>
+  </body>
+</html>
+
+<style>
+  .estrutura {
+    display: grid;
+    grid-template-columns: 250px minmax(0, 1fr);
+    min-height: 100dvh;
+  }
+
+  .conteudo {
+    min-width: 0;
+  }
+
+  .pular-conteudo {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    z-index: 100;
+    padding: 12px 20px;
+    transform: translateY(-200%);
+    border-radius: var(--raio-pequeno);
+    background: var(--superficie);
+    color: var(--texto);
+  }
+
+  .pular-conteudo:focus {
+    transform: translateY(0);
+  }
+
+  @media (max-width: 760px) {
+    .estrutura {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

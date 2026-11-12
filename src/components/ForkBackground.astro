@@ -1,0 +1,91 @@
+<div class="fork-background" aria-hidden="true">
+  <div class="glow glow-orange"></div>
+  <div class="glow glow-blue"></div>
+
+  <div class="hex-layer">
+    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+      <defs>
+        <linearGradient id="fork-colors" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#ff5c00" />
+          <stop offset="100%" stop-color="#3448ff" />
+        </linearGradient>
+
+        <pattern
+          id="fork-hexagons"
+          width="180"
+          height="104"
+          patternUnits="userSpaceOnUse"
+        >
+          <path
+            d="M30 0H90L120 52L90 104H30L0 52Z
+              M120 -52H180L210 0L180 52H120L90 0Z
+              M120 52H180L210 104L180 156H120L90 104Z"
+            fill="none"
+            stroke="url(#fork-colors)"
+            stroke-width="1"
+          />
+        </pattern>
+      </defs>
+
+      <rect width="100%" height="100%" fill="url(#fork-hexagons)" />
+    </svg>
+  </div>
+</div>
+
+<style>
+  .fork-background {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+    background: #141414;
+  }
+
+  .glow {
+    position: absolute;
+    width: 75vmax;
+    height: 75vmax;
+    border-radius: 50%;
+    filter: blur(70px);
+    animation: breathe 24s ease-in-out infinite alternate;
+  }
+
+  .glow-orange {
+    bottom: -50vmax;
+    left: -25vmax;
+    background: radial-gradient(circle, #ff5c0055, transparent 65%);
+  }
+
+  .glow-blue {
+    top: -45vmax;
+    right: -25vmax;
+    background: radial-gradient(circle, #3448ff66, transparent 65%);
+    animation-delay: -12s;
+  }
+
+  .hex-layer {
+    position: absolute;
+    inset: -120px;
+    opacity: 0.22;
+    animation: drift 45s linear infinite;
+    mask-image: radial-gradient(ellipse, #000 20%, transparent 80%);
+  }
+
+  @keyframes drift {
+    from { transform: translate(0, 0); }
+    to { transform: translate(90px, 52px); }
+  }
+
+  @keyframes breathe {
+    from { transform: translate(0, 0) scale(1); }
+    to { transform: translate(4vw, 3vh) scale(1.12); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .glow,
+    .hex-layer {
+      animation: none;
+    }
+  }
+</style>

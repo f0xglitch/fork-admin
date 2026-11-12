@@ -1,0 +1,175 @@
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/fonts/bricolage-grotesque-variable.ttf") format("truetype");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Identidade da Fork */
+:root {
+  /* Paleta oficial da v1 */
+  --off: #faf9f6;
+  --papel: #efebe3;
+  --creme: #fff7eb;
+
+  --marinho: #0f172a;
+  --marinho-2: #1e293b;
+  --tinta-2: #3b4658;
+  --tinta-3: #5b6676;
+
+  --laranja: #f97316;
+  --laranja-escuro: #c2410c;
+  --laranja-claro: #ffedd5;
+  --laranja-pastel: #ffe6d1;
+
+  --cobalto: #2563eb;
+  --cobalto-1: #1e40af;
+  --cobalto-2: #1d4ed8;
+  --cobalto-4: #3b82f6;
+  --cobalto-claro: #dbe6fd;
+
+  --azul-pastel: #d9e4ff;
+  --lilas-pastel: #e6e1fb;
+  --verde-pastel: #d9f5e4;
+  --rosa: #fb7185;
+  --rosa-pastel: #ffdfe4;
+
+  --linha: #0f172a1f;
+  --linha-forte: #0f172a3d;
+
+  /* Compatibilidade com componentes que já criados */
+  --azul: var(--cobalto);
+  --preto: #181818;
+
+  /* Tipografia: Bricolage arquivo local */
+  --fonte-principal: "Bricolage Grotesque", system-ui, sans-serif;
+
+  --texto-pequeno: 0.875rem;
+  --texto-base: 1rem;
+  --texto-titulo: clamp(1.75rem, 3vw, 2.5rem);
+
+  /* Espaçamentos */
+  --espaco-1: 0.25rem;
+  --espaco-2: 0.5rem;
+  --espaco-3: 0.75rem;
+  --espaco-4: 1rem;
+  --espaco-6: 1.5rem;
+  --espaco-8: 2rem;
+  --espaco-12: 3rem;
+
+  /* Formas */
+  --raio-pequeno: 0.5rem;
+  --raio-medio: 0.875rem;
+  --raio-grande: 1.25rem;
+
+  /* Tema claro */
+  --fundo: var(--off);
+  --superficie: #ffffff;
+  --superficie-secundaria: var(--papel);
+  --texto: var(--marinho);
+  --texto-suave: var(--tinta-3);
+  --borda: var(--linha);
+
+  --destaque: var(--laranja-escuro);
+  --destaque-fundo: var(--laranja-claro);
+  --foco: var(--cobalto);
+
+  --sombra: 0 8px 28px rgb(15 23 42 / 5%);
+}
+
+/* Tema escuro */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --fundo: #141414;
+  --superficie: #1c1c1c;
+  --superficie-secundaria: #252525;
+  --texto: #fff3e6;
+  --texto-suave: #b8b2aa;
+  --borda: #383634;
+
+  --destaque: #ff8a47;
+  --destaque-fundo: #352216;
+  --foco: #91a0ff;
+
+  --sombra: 0 8px 28px rgb(0 0 0 / 20%);
+}
+
+/* Base da página */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--fundo);
+  color: var(--texto);
+  font-family: var(--fonte-principal);
+  font-size: var(--texto-base);
+  font-weight: 450;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  line-height: 1.2;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-underline-offset: 0.2em;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+:focus-visible {
+  outline: 3px solid var(--foco);
+  outline-offset: 4px;
+}
+
+::selection {
+  background: var(--laranja);
+  color: var(--preto);
+}
+
+/* menos movimento */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

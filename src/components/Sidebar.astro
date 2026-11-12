@@ -1,0 +1,146 @@
+<aside class="sidebar">
+  <a class="marca" href="/" aria-label="Central da Fork — início">
+    <span class="simbolo" aria-hidden="true">F</span>
+
+    <span>
+      Fork
+      <small>Central da comunidade</small>
+    </span>
+  </a>
+
+  <nav aria-label="Navegação principal">
+    <a class="item ativo" href="/" aria-current="page">
+      Início
+    </a>
+
+    <div class="grupo">
+      <p class="grupo-titulo">Organização</p>
+
+      <a class="item" href="/equipes">Equipes</a>
+      <a class="item" href="/tarefas">Tarefas</a>
+      <a class="item" href="/reunioes">Reuniões</a>
+      <a class="item" href="/eventos">Eventos</a>
+    </div>
+  </nav>
+
+  <p class="rodape">Mesmo código, mais pessoas.</p>
+</aside>
+
+<style>
+  .sidebar {
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--espaco-8);
+    height: 100dvh;
+    overflow-y: auto;
+    padding: var(--espaco-6) var(--espaco-4);
+    background: var(--superficie);
+    border-right: 1px solid var(--borda);
+  }
+
+  .marca {
+    display: flex;
+    align-items: center;
+    gap: var(--espaco-3);
+    padding: var(--espaco-2);
+    color: var(--texto);
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 800;
+  }
+
+  .simbolo {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--raio-pequeno);
+    background: var(--marinho);
+    color: var(--laranja);
+  }
+
+  .marca small {
+    display: block;
+    margin-top: var(--espaco-1);
+    color: var(--texto-suave);
+    font-size: 0.75rem;
+    font-weight: 450;
+  }
+
+  nav {
+    display: grid;
+    gap: var(--espaco-6);
+  }
+
+  .grupo {
+    display: grid;
+    gap: var(--espaco-1);
+  }
+
+  .grupo-titulo {
+    margin-bottom: var(--espaco-2);
+    padding-inline: var(--espaco-3);
+    color: var(--texto-suave);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .item {
+    display: block;
+    padding: var(--espaco-3);
+    border-radius: var(--raio-pequeno);
+    color: var(--texto-suave);
+    text-decoration: none;
+    font-size: var(--texto-pequeno);
+    font-weight: 500;
+  }
+
+  .item:hover {
+    background: var(--superficie-secundaria);
+    color: var(--texto);
+  }
+
+  .item.ativo {
+    background: var(--destaque-fundo);
+    color: var(--destaque);
+    font-weight: 700;
+  }
+
+  .rodape {
+    margin-top: auto;
+    padding: var(--espaco-3);
+    color: var(--texto-suave);
+    font-size: 0.75rem;
+  }
+
+  @media (max-width: 760px) {
+    .sidebar {
+      position: static;
+      height: auto;
+      gap: var(--espaco-4);
+      border-right: 0;
+      border-bottom: 1px solid var(--borda);
+    }
+
+    nav {
+      gap: var(--espaco-3);
+    }
+
+    .grupo {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grupo-titulo {
+      grid-column: 1 / -1;
+    }
+
+    .rodape {
+      display: none;
+    }
+  }
+</style>
